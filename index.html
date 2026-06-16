@@ -1,65 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Sushil Marasini - Portfolio</title>
-  <style>
-    body {
-      font-family: Arial;
-      margin: 0;
-      background: #f4f4f4;
-      color: #333;
-    }
-    header {
-      background: #222;
-      color: white;
-      padding: 40px;
-      text-align: center;
-    }
-    section {
-      padding: 20px;
-      max-width: 800px;
-      margin: auto;
-      background: white;
-      margin-top: 20px;
-      border-radius: 10px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 10px 15px;
-      background: blue;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sushil Marasini | Portfolio</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #0f0f1a, #050507);
+  color: #eaeaea;
+  overflow-x: hidden;
+}
+
+/* glow */
+body::before {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: #00ffcc;
+  filter: blur(160px);
+  opacity: 0.12;
+  top: -200px;
+  left: -200px;
+  z-index: -1;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 50px;
+  background: rgba(10, 10, 20, 0.6);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  z-index: 1000;
+}
+
+nav h2 {
+  color: #00ffcc;
+}
+
+nav a {
+  color: #bbb;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #00ffcc;
+}
+
+/* SECTIONS (FIXED) */
+section {
+  padding: 90px 10%;
+}
+
+/* HERO */
+.hero {
+  padding-top: 140px;
+}
+
+.hero h1 {
+  font-size: 58px;
+  background: linear-gradient(90deg, #00ffcc, #6a5cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  margin-top: 10px;
+  color: #aaa;
+  font-size: 18px;
+}
+
+.btn {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 12px 20px;
+  background: linear-gradient(90deg, #00ffcc, #6a5cff);
+  color: #000;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* SECTION TITLE */
+h2 {
+  color: #00ffcc;
+  margin-bottom: 15px;
+  font-size: 30px;
+}
+
+/* TEXT */
+p {
+  color: #aaa;
+  max-width: 750px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+/* CARDS */
+.card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 18px;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: #00ffcc;
+  box-shadow: 0 0 18px rgba(0,255,204,0.15);
+}
+
+/* CONTACT */
+.contact {
+  background: rgba(255,255,255,0.05);
+  padding: 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  max-width: 600px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin-top: 40px;
+}
+
+/* HERO ANIMATION */
+.hero {
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav { flex-direction: column; gap: 10px; }
+  .hero h1 { font-size: 38px; }
+}
+.project-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.85);
+  transition: 0.3s;
+}
+</style>
 </head>
+
 <body>
 
-<header>
-  <h1>Sushil Marasini</h1>
-  <p>BCA Student | Web Developer | MERN Learner</p>
-</header>
+<nav>
+  <h2>Sushil.dev</h2>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
 
-<section>
+<!-- HERO -->
+<section id="home" class="hero">
+  <h1>Hi, I'm Sushil Marasini</h1>
+  <p>BCA Student • MERN Stack Developer • Nepal</p>
+  <a class="btn" href="#projects">View Projects</a>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
   <h2>About Me</h2>
-  <p>I am a passionate web developer learning MERN stack and building real projects like LMS, iNote, and Nepal Location system.</p>
+  <p>
+    I am a passionate developer focused on full-stack web development.
+    I build modern apps using React, Node.js, and PHP systems.
+  </p>
+
+  <div class="grid">
+    <div class="card">Frontend: React, HTML, CSS, JS</div>
+    <div class="card">Backend: Node.js, Express</div>
+    <div class="card">Database: MongoDB, MySQL</div>
+  </div>
 </section>
 
-<section>
+<!-- PROJECTS -->
+<section id="projects">
   <h2>Projects</h2>
-  <ul>
-    <li>iNote - Note Taking App</li>
-    <li>Learning Management System (LMS)</li>
-    <li>Nepal Location Information System</li>
-  </ul>
+  <div class="grid">
+
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c"  />
+      <div class="content">
+        <h3>iNote App</h3>
+        <p>Full-stack note taking app with CRUD features and authentication.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" />
+      <div class="content">
+        <h3>LMS System</h3>
+        <p>Learning management system with courses, chapters and lectures.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" />
+      <div class="content">
+        <h3>Nepal Location System</h3>
+        <p>PHP based location hierarchy system for districts and wards.</p>
+      </div>
+    </div>
+
+  </div>
+
 </section>
 
-<section>
+<!-- CONTACT -->
+<section id="contact">
   <h2>Contact</h2>
-  <p>Email: sushilmarasini6@gmail.com</p>
-  <a class="btn" href="mailto:sushilmarasini6@gmail.com">Contact Me</a>
+
+  <div class="contact">
+    <p>Email: sushilmarasini6@gmail.com</p>
+    <p>Phone: 9867XXXXXX</p>
+    <p>Location: Nepal</p>
+    <br>
+    <a class="btn" href="mailto:sushilmarasini6@gmail.com">Send Email</a>
+  </div>
 </section>
+
+<footer>
+  © 2026 Sushil Marasini
+</footer>
 
 </body>
 </html>
